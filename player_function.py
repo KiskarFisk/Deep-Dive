@@ -17,6 +17,8 @@ class Player:
         self.augments = 0
         self.max_augments = 1
 
+        player1.tier = 1
+
         self.weapon = wl.machete
 
     def recover(self):

@@ -26,3 +26,12 @@ class Mission:
         player1.rep += self.rep_reward
         print(f"Your reputation increased by {self.rep_reward} and you gained {self.credit_reward} credits")
         player1.credits += self.credit_reward
+
+        if player1.objective is not None:
+            if self.type == player1.objective.valid_mission_types:
+                player1.objective.progress += 1
+                if player1.objective.progress <= player1.objective.goal:
+                    print("Gain progress toward objective")
+                if player1.objective.progress >= player1.objective.goal:
+                    player1.objective.progress = player1.objective.goal
+                    print("Your objective is complete, please return to the nearest HALIDON Mission Center")

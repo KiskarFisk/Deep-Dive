@@ -10,8 +10,7 @@ def main():
     print("3. See your stats")
     print("4. Visit a medpod")
 
-    # temporary code
-    # player1.hp = player1.max_hp
+    player1.energy = player1.energy_max
 
     inp = input("Choice: ")
     if inp == "1":
@@ -43,5 +42,5 @@ def main():
 def pull_missions():
     if player1.rep < 100:
         return random.choice(t1ml.t1_missions)
-    else:
+    elif player1.rep >= 100 and player1.tier == 2:
         return random.choice(t1ml.t1_missions)

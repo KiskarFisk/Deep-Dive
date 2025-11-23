@@ -11,6 +11,6 @@ class Objective:
         print(self.desc)
         print(f"Progress to goal: {self.progress}/{self.goal}")
 
-test_objective = Objective("Test Objective", 3, None, "Test Description")
+test_objective = Objective("Test Objective", 3, "scavenge", "Test Description")
 
 starter_objectives = [test_objective]
