@@ -15,4 +15,6 @@ time.sleep(1.4)
 print("Please do your best, your artificial body is worth $72.")
 time.sleep(1.1)
 
-menu.main()
+#temporary measure
+while True:
+    menu.main()

@@ -6,5 +6,7 @@ def main():
     print("2. See Objectives")
 
     inp = input("Choice: ")
+    if inp == "1":
+        print("not functional")
     if inp == "2":
         player1.objective.display_info()
