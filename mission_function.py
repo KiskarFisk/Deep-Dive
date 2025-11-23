@@ -17,4 +17,4 @@ class Mission:
 
     def run_room(self):
         major = room.Room(self.tier)
-        major.debug_room_info()
+        major.operate()
