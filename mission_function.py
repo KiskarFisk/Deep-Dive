@@ -1,3 +1,5 @@
+import room_function as room
+
 class Mission:
     def __init__(self, name, type, tier, rooms, rtype):
         self.name = name
@@ -9,8 +11,10 @@ class Mission:
 
     def run_mission(self):
         while self.room <= self.room_c:
-            print("temp")
+            self.run_room()
+            self.room += 1
         print("Mission completed!")
 
     def run_room(self):
-        print()
+        major = room.Room(self.tier)
+        major.debug_room_info()

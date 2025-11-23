@@ -1,3 +1,6 @@
 import enemy_function as enemy
+import weapon_list as w
 
-test_enemy = enemy.Enemy("Test", 1, None)
+rat_scavenger = enemy.Enemy("Rat Scavenger", 170, w.machete)
+
+tier1_enemy_list = [rat_scavenger]
