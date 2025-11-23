@@ -1,4 +1,5 @@
 from player_function import player1
+import random
 
 def main():
     print(f"\nPlease select what to do C{player1.serial_num}")
@@ -7,6 +8,6 @@ def main():
 
     inp = input("Choice: ")
     if inp == "1":
-        print("not functional")
+        print()
     if inp == "2":
         player1.objective.display_info()
