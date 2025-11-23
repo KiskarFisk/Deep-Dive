@@ -11,3 +11,6 @@ class Mission:
         while self.room <= self.room_c:
             print("temp")
         print("Mission completed!")
+
+    def run_room(self):
+        print()
