@@ -1,4 +1,4 @@
-import random
+import random, time
 import objective_function as obj
 import weapon_list as wl
 
@@ -18,5 +18,10 @@ class Player:
     def recover(self):
         if self.energy < self.energy_max:
             self.energy += 1
+
+    def display_info(self):
+        print(f"You have {self.hp}/{self.max_hp} HP and {self.energy}/{self.energy_max} energy")
+        self.weapon.display_info()
+        time.sleep(1)
 
 player1 = Player()

@@ -3,3 +3,6 @@ class Weapon:
         self.name = name
         self.damage = damage
         self.desc = desc
+
+    def display_info(self):
+        print(f"{self.name} - {self.damage} damage - {self.desc}")
