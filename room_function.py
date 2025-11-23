@@ -35,19 +35,24 @@ class Room:
     def operate(self):
         operating = True
         while operating:
+            print()
             self.display_enemies()
             if not self.defeated:
                 print("1. Fight")
             print("2. Evacuate")
             if self.defeated:
                 print("3. Continue")
+            print("4. View your stats")
 
-            inp = input()
+            inp = input("Choice: ")
             if inp == "1" and self.defeated == False:
                 self.fight()
 
             if inp =="3" and self.defeated:
                 operating = False
+
+            if inp == "4":
+                player1.display_info()
 
     def fight(self):
         fight = True
