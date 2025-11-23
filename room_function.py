@@ -29,7 +29,9 @@ class Room:
 
     def get_enemy(self):
         if self.tier == 1:
-            return random.choice(tier1_enemy_list)
+            enemy_class = random.choice(tier1_enemy_list)
+            enemy_instance = enemy_class()
+            return enemy_instance
 
     def operate(self):
         operating = True
@@ -44,6 +46,9 @@ class Room:
             inp = input()
             if inp == "1" and self.defeated == False:
                 self.fight()
+
+            if inp =="3" and self.defeated:
+                operating = False
 
     def fight(self):
         fight = True
