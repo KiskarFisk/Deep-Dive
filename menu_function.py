@@ -44,4 +44,4 @@ def pull_missions():
     if player1.rep < 100:
         return random.choice(t1ml.t1_missions)
     else:
-        return None
+        return random.choice(t1ml.t1_missions)
