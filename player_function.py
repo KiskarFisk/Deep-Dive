@@ -17,7 +17,7 @@ class Player:
         self.augments = 0
         self.max_augments = 1
 
-        player1.tier = 1
+        self.tier = 1
 
         self.weapon = wl.machete
 

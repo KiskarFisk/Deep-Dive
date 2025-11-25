@@ -1,10 +1,11 @@
 import random, time
-from enemies.tier_1_enemy_list import tier1_enemy_list
+import enemies.tier_1_enemy_list as t1e
 from player_function import player1
 
 class Room:
-    def __init__(self, tier):
+    def __init__(self, tier, elist):
         self.tier = tier
+        self.etype = elist
 
         self.enemy1 = self.get_enemy() # every room will have at least 1 enemy
 
@@ -28,7 +29,7 @@ class Room:
 
     def get_enemy(self):
         if self.tier == 1:
-            enemy_class = random.choice(tier1_enemy_list)
+            enemy_class = t1e.enemy_retrieve(self.etype)
             enemy_instance = enemy_class()
             return enemy_instance
 

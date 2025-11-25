@@ -1,15 +1,19 @@
 import room_function as room
 from player_function import player1
+import enemies.tier_1_enemy_list as t1e
 
 class Mission:
-    def __init__(self, name, type, tier, rooms, rep_reward, credit_reward):
+    def __init__(self, name, type, tier, rooms, ):
         self.name = name
         self.type = type
         self.tier = tier
         self.room_c = rooms
         self.room = 1
-        self.rep_reward = rep_reward
-        self.credit_reward = credit_reward
+        self.etype = self.etype_retrieve()
+
+    def etype_retrieve(self):
+        if self.tier == 1:
+            return t1e.random_list_t1()
 
     def run_mission(self):
         while self.room <= self.room_c:
@@ -18,7 +22,7 @@ class Mission:
         self.complete_mission()
 
     def run_room(self):
-        major = room.Room(self.tier)
+        major = room.Room(self.tier, self.etype)
         major.operate()
 
     def complete_mission(self):
