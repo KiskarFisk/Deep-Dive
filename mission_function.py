@@ -32,7 +32,7 @@ class Mission:
             if self.type == player1.objective.valid_mission_types:
                 player1.objective.progress += 1
                 if player1.objective.progress <= player1.objective.goal:
-                    print("Gain progress toward objective")
+                    print("Gained progress toward objective")
                 if player1.objective.progress >= player1.objective.goal:
                     player1.objective.progress = player1.objective.goal
                     print("Your objective is complete, please return to the nearest HALIDON Mission Center")
