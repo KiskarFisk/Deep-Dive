@@ -1,5 +1,4 @@
 import weapon_function as w
-from player_function import player1
 import random
 
 # TIER I
