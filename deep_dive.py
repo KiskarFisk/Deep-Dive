@@ -6,14 +6,6 @@ import save_system as save
 
 skip_intro = False
 
-def extra_load():
-    if os.path.exists("save_data.pkl"):
-        save.load()
-        do_the_thing()
-    else:
-        print("No save exists, reloading the game.")
-        do_the_thing()
-
 #save function
 if os.path.exists("save_data.pkl"):
     inp = input("y/n load existing save? ")

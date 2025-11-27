@@ -2,7 +2,6 @@ import random, time, os
 import weapon_list as wl
 import objectives.tier_1_objective_list as obj1
 import objectives.t2_ol as obj2
-import deep_dive as dd
 
 class Player:
     def __init__(self):
@@ -30,18 +29,8 @@ class Player:
     def dieded(self):
         dead = True
         while dead:
-            print("You have died.\n1. Reload your save if there is one\n2. Restart the game")
-            options = {
-                "1": dd.extra_load,
-                "2": dd.do_the_thing
-            }
-            inp = input("Choice: ")
-            option = options.get(inp)
-            if option:
-                option()
-                dead = False
-            else:
-                print("Invalid option")
+            print("You have died. Please quit the game.")
+            time.sleep(99999999) # temporary measure since this was pissing me off
 
     def recover(self):
         if self.energy < self.energy_max:
