@@ -14,6 +14,8 @@ def save():
             player1.energy_max,
             player1.augments,
             player1.max_augments,
+            player1.last_shop,
+            player1.mis_comp,
             player1.tier,
             player1.weapon
             ),
@@ -33,6 +35,8 @@ def load():
             player1.energy_max,
             player1.augments,
             player1.max_augments,
+            player1.last_shop,
+            player1.mis_comp,
             player1.tier,
             player1.weapon
         ) = pkl.load(f)
