@@ -61,7 +61,7 @@ def main():
         hms.hms_menu()
 
 def pull_missions():
-    if player1.rep < 100:
+    if player1.tier == 1:
         return random.choice(t1ml.t1_missions)
-    elif player1.rep >= 100 and player1.tier == 2:
+    elif player1.tier > 1:
         return random.choice(t1ml.t1_missions)

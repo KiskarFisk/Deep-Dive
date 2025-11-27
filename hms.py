@@ -33,6 +33,7 @@ def hms_ti_obj():
             player1.credits += player1.objective.mrew
             player1.reputation += player1.objective.rrew
             player1.objective = None
+            player1.tier_up()
         if player1.objective.progress != player1.objective.goal:
             print("You mission is not complete!")
     else:
