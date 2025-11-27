@@ -10,6 +10,7 @@ def hms_menu():
     print("2. Get a new mission")
     print("3. Go to the shop")
     print("4. Faction Dictionary")
+    print("5. Buy Upgrades")
 
     inp = input("Choice: ")
 
@@ -17,7 +18,8 @@ def hms_menu():
         "1": hms_ti_obj,
         "2": hms_g_obj,
         "3": hms_shop,
-        "4": fb.main
+        "4": fb.main,
+        "5": hms_upgrade
     }
     action = actions.get(inp)
     if action:
@@ -77,3 +79,25 @@ def hms_shop():
     else:
         print("Leaving")
         time.sleep(1)
+
+def hms_upgrade():
+    options = {
+        "1": up_health
+    }
+    print("1. Upgrade Health (+100 Max HP, 5 Credits)")
+    inp = input("Choice: ")
+    option = options.get(inp)
+    if option:
+        option()
+    else:
+        print("Leaving")
+
+def up_health():
+    if player1.credits < 5:
+        print("Insufficient Funds")
+    else:
+        player1.credits -= 5
+        player1.max_hp += 100
+        player1.hp += 100
+        print(f"Max HP is now: {player1.max_hp}")
+        time.sleep(2)

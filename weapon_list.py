@@ -15,14 +15,17 @@ acid = w.Weapon("Acid Vial", 100, "A vial of acid.")
 # Guns
 pistol = w.Weapon("Pistol", 110, "A pistol.")
 auto_pistol = w.Weapon("Auto-Pistol", 120, "An Old Age auto-pistol.")
+
 bolt_rifle = w.Weapon("Bolt Action Rifle", 130, "An old bolt action rifle, very outdated now.")
 rifle = w.Weapon("Small Auto-Rifle", 150, "A New Age auto-rifle made for easy use, fairly weak because of that.")
+
 single_shotgun = w.Weapon("Single Shot Shotgun", 150, "A shotgun with no ammo reserve and a single barrel.")
 auto_shotgun = w.Weapon("Auto-Shotgun", 190, "An automatic shotgun, very effective.")
 double_shotgun = w.Weapon("Double Barrel Shotgun", 160, "A shotgun with two barrels.")
 triple_shotgun = w.Weapon("Triple Barrel Shotgun", 240, "A shotgun with three barrels.")
 quadruple_shotgun = w.Weapon("Quad Barrel Shotgun", 360, "A shotgun with four barrels.")
 five_shotgun = w.Weapon("Five Barrel Shotgun", 470, "What the hell are they doing at this point?")
+
 dart_gun = w.Weapon("Dart Gun", 80, "A gun, that shoots darts.")
 # High Tech Bable
 mk0_laz_pistol = w.Weapon("Mk0 Lazer Pistol", 110, "An extremely old lazer pistol with a massive battery, its classified as a rifle because of its size.")
