@@ -18,6 +18,7 @@ auto_pistol = w.Weapon("Auto-Pistol", 120, "An Old Age auto-pistol.")
 bolt_rifle = w.Weapon("Bolt Action Rifle", 130, "An old bolt action rifle, very outdated now.")
 rifle = w.Weapon("Small Auto-Rifle", 150, "A New Age auto-rifle made for easy use, fairly weak because of that.")
 single_shotgun = w.Weapon("Single Shot Shotgun", 150, "A shotgun with no ammo reserve and a single barrel.")
+auto_shotgun = w.Weapon("Auto-Shotgun", 190, "An automatic shotgun, very effective.")
 double_shotgun = w.Weapon("Double Barrel Shotgun", 160, "A shotgun with two barrels.")
 triple_shotgun = w.Weapon("Triple Barrel Shotgun", 240, "A shotgun with three barrels.")
 quadruple_shotgun = w.Weapon("Quad Barrel Shotgun", 360, "A shotgun with four barrels.")
@@ -26,6 +27,8 @@ dart_gun = w.Weapon("Dart Gun", 80, "A gun, that shoots darts.")
 # High Tech Bable
 mk0_laz_pistol = w.Weapon("Mk0 Lazer Pistol", 110, "An extremely old lazer pistol with a massive battery, its classified as a rifle because of its size.")
 mk0_laz_rifle = w.Weapon("Mk0 Lazer Rifle", 130, "An old lazer rifle, the battery pack sits on your back, weighing almost 50 pounds.")
+mk1_laz_pistol = w.Weapon("Mk1 Lazer Pistol", 140, "An improved version of the original lazer pistol, now properly classified as a pistol.")
+mk1_laz_rifle = w.Weapon("Mk1 Lazer Rifle", 160, "The standard issue lazer rifle for nearly 40 years, now very outdated but still effective.")
 
 t1_shop_list = [
     machete,
