@@ -35,3 +35,12 @@ t1_shop_list = [
 
     mk0_laz_pistol
 ]
+
+t2_shop_list = [
+    axe,
+    pistol,
+    auto_pistol,
+    bolt_rifle,
+    mk0_laz_pistol,
+    mk0_laz_rifle
+]
