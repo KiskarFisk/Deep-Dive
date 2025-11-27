@@ -55,7 +55,7 @@ class Player:
 
     def replace_weapon(self, weapon):
         self.weapon = weapon
-        
+
     def generate_shop(self):
         if self.tier == 1:
             self.shop_inv.append(random.choice(wl.t1_shop_list))
