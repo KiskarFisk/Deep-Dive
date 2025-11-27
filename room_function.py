@@ -100,6 +100,7 @@ class Room:
                 if inp == "2":
                     print("You rest, regaining 1 energy")
                     player1.recover()
+                    attacked = True
 
                 if inp == "3":
                     player1.display_info()
