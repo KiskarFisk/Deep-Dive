@@ -39,7 +39,7 @@ toreed_list = [make_toreed1, make_toreed2, make_toreed3, make_toreed4, make_tore
 halidon_rebels = [make_halireb1, make_halireb2, make_halireb3, make_halireb4]
 malbey = [make_malbey1, make_malbey2, make_malbey3, make_malbey4]
 
-t3_list = ["toreed, halidon, malbey"]
+t3_list = ["toreed", "halidon", "malbey"]
 
 def enemy_retrieve(etype):
     if etype == "toreed":

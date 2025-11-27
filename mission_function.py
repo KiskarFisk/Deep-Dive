@@ -19,7 +19,7 @@ class Mission:
         if self.tier == 2:
             return t2e.random_list()
         if self.tier == 3:
-            return t3e.random_list
+            return t3e.random_list()
 
     def run_mission(self):
         while self.room <= self.room_c:
