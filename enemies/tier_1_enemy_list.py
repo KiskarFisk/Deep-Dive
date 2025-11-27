@@ -24,16 +24,26 @@ def make_tienne_shotgun1():
 def make_tienne_shotgun2():
     return enemy.Enemy("Tienne Shotgunner", 120, w.double_shotgun, 1)
 
+def make_orfast_militia1():
+    return enemy.Enemy("Orfast Militiaman", 100, w.pistol, 1)
+def make_orfast_militia2():
+    return enemy.Enemy("Orfast Militiaman", 100, w.single_shotgun, 1)
+def make_orfast_militia3():
+    return enemy.Enemy("Orfast Militiaman", 100, w.bolt_rifle, 1)
+
 tier1_enemy_list = [make_rat_scavenger, make_rat_rager, make_rat_crackpot, make_rat_holder, make_rat_acid]
 tienne_merc_list = [make_tienne_scout, make_tienne_rifle, make_tienne_greaser, make_tienne_shotgun1, make_tienne_shotgun2]
+orfast_list = [make_orfast_militia1, make_orfast_militia2, make_orfast_militia3]
 
-t1_list = ["rat", "tienne"]
+t1_list = ["rat", "tienne", "orfast"]
 
 def enemy_retrieve(etype):
     if etype == "rat":
         return random.choice(tier1_enemy_list)
     if etype == "tienne":
         return random.choice(tienne_merc_list)
+    if etype == "orfast":
+        return random.choice(orfast_list)
 
 
 def random_list_t1():
