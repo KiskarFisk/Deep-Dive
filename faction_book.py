@@ -1,0 +1,36 @@
+from player_function import player1
+import time
+
+def main():
+    print("Here you may read about the groups you may come across during your diving.")
+    if player1.tier == 1:
+        tier1_factions()
+
+def tier1_factions():
+    leave = False
+    while not leave:
+        print("1. The Rats\n"
+              "2. Tienne\n"
+              "3. Orfast\n")
+        inp = input("Choice: ")
+        options = {
+            "1": rat,
+            "2": tienne,
+            "3": orfast
+        }
+        option = options.get(inp)
+        if option:
+            option()
+        else:
+            print("Leaving")
+            leave = True
+
+def rat():
+    print("The Rats are a group of drug addicted scavengers, they loot and kill with glee.")
+    input("Press enter to continue")
+def tienne():
+    print("Tienne are a group of mercenaries originating from Old Tokyo. They were once powerful enough to rival HALIDON but the company collapsed after destruction of Japan.")
+    input("Press enter to continue")
+def orfast():
+    print("Orfast is a group operating solely in Terran cities, they're harmless for the most part, when left alone. They fiercely fight for the so-called freedom of humanity on Terra.")
+    input("Press enter to continue")

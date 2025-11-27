@@ -1,6 +1,7 @@
 import random, time
 from player_function import player1
 import weapon_list as wl
+import faction_book as fb
 
 def hms_menu():
     print()
@@ -8,13 +9,15 @@ def hms_menu():
     print("1. Turn in mission")
     print("2. Get a new mission")
     print("3. Go to the shop")
+    print("4. Faction Dictionary")
 
     inp = input("Choice: ")
 
     actions = {
         "1": hms_ti_obj,
         "2": hms_g_obj,
-        "3": hms_shop
+        "3": hms_shop,
+        "4": fb.main
     }
     action = actions.get(inp)
     if action:
