@@ -27,6 +27,7 @@ class Mission:
 
     def complete_mission(self):
         print("Congrats, you completed the mission!")
+        self.room = 1
         player1.mis_comp += 1 # increments it by 1, thus keeping track of how many missions have been completed
 
         if player1.objective is not None:
