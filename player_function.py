@@ -10,7 +10,7 @@ class Player:
         self.hp = 600
         self.max_hp = 600
         self.rep = 0
-        self.credits = 5
+        self.credits = 20
         self.energy = 5
         self.energy_max = 5
 
@@ -52,5 +52,12 @@ class Player:
     def get_objective(self):
         if self.tier == 1:
             self.objective = random.choice(obj1.starter_objectives)
+
+    def replace_weapon(self, weapon):
+        self.weapon = weapon
+        
+    def generate_shop(self):
+        if self.tier == 1:
+            self.shop_inv.append(random.choice(wl.t1_shop_list))
 
 player1 = Player()
