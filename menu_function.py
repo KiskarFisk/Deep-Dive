@@ -1,6 +1,7 @@
 from player_function import player1
 import random, time, os
 import missions.tier_1_mission_list as t1ml
+import missions.t2_ml as t2ml
 import save_system as save
 import hms as hms
 
@@ -64,4 +65,4 @@ def pull_missions():
     if player1.tier == 1:
         return random.choice(t1ml.t1_missions)
     elif player1.tier > 1:
-        return random.choice(t1ml.t1_missions)
+        return random.choice(t2ml.t2_misslist)

@@ -46,3 +46,6 @@ def enemy_retrieve(etype):
         return random.choice(nwo_knights)
     if etype == "toreed":
         return random.choice(toreed_list)
+
+def random_list():
+    return random.choice(t2_list)
