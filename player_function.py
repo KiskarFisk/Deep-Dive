@@ -16,9 +16,10 @@ class Player:
 
         self.augments = 0
         self.max_augments = 1
-        
+
         self.last_shop = 0
         self.mis_comp = 0
+        self.shop_inv = []
 
         self.tier = 1
 
