@@ -28,7 +28,3 @@ t1_shop_list = [
 
     mk0_laz_pistol
 ]
-
-def generate_shop():
-    if player1.tier == 1:
-        player1.shop_inv.append(random.choice(t1_shop_list))
