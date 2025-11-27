@@ -46,7 +46,7 @@ class Player:
                 print(f"Recovered {inp*100} HP")
 
     def display_info(self):
-        print(f"You have {self.hp}/{self.max_hp} HP and {self.energy}/{self.energy_max} energy")
+        print(f"\nYou have {self.hp}/{self.max_hp} HP and {self.energy}/{self.energy_max} energy")
         print(f"{self.credits} Credits")
         self.weapon.display_info()
         time.sleep(1)

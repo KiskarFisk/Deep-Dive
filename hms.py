@@ -34,8 +34,10 @@ def hms_ti_obj():
             print(f"You have gained {player1.objective.mrew} credits and reputation!")
             player1.credits += player1.objective.mrew
             player1.rep += player1.objective.rrew
+            player1.objective.progress = 0
             player1.objective = None
             player1.tier_up()
+            time.sleep(2)
         elif player1.objective.progress != player1.objective.goal:
             print("You mission is not complete!")
     else:
