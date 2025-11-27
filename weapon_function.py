@@ -5,4 +5,4 @@ class Weapon:
         self.desc = desc
 
     def display_info(self):
-        print(f"{self.name} - {self.damage} damage - {self.desc}")
+        print(f"{self.name} - {self.damage} damage - priced at: {self.damage/10}\n{self.desc}")
