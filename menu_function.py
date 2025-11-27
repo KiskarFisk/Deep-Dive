@@ -44,6 +44,7 @@ def main():
     if inp == "2":
         if player1.objective is not None:
             player1.objective.display_info()
+            input("Press enter to continue")
         else:
             print("No objective selected")
 
