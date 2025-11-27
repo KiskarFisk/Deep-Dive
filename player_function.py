@@ -45,4 +45,8 @@ class Player:
         self.weapon.display_info()
         time.sleep(1)
 
+    def get_objective(self):
+        if self.tier == 1:
+            self.objective = random.choice(obj.starter_objectives) # remember to update this
+
 player1 = Player()

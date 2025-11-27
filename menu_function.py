@@ -2,6 +2,7 @@ from player_function import player1
 import random, time, os
 import missions.tier_1_mission_list as t1ml
 import save_system as save
+import hms as hms
 
 def main():
     print()
@@ -27,15 +28,24 @@ def main():
         print(f"3. {m3.name}")
 
         inp = input("Choice: ")
-        if inp == "1":
-            m1.run_mission()
-        if inp == "2":
-            m2.run_mission()
-        if inp == "3":
-            m3.run_mission()
+
+        actions = {
+            "1": m1.run_mission,
+            "2": m2.run_mission,
+            "3": m3.run_mission,
+        }
+
+        action = actions.get(inp)
+        if action:
+            action()
+        else:
+            print("Invalid choice.")
 
     if inp == "2":
-        player1.objective.display_info()
+        if player1.objective is not None:
+            player1.objective.display_info()
+        else:
+            print("No objective selected")
 
     if inp == "3":
         player1.display_info()
@@ -45,6 +55,9 @@ def main():
 
     if inp == "5":
         save.save()
+
+    if inp == "6":
+        hms.hms_menu()
 
 def pull_missions():
     if player1.rep < 100:
