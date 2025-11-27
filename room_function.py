@@ -1,6 +1,7 @@
 import random, time, os
 import enemies.tier_1_enemy_list as t1e
 import enemies.t2_el as t2e
+import enemies.t3_el as t3e
 from player_function import player1
 
 class Room:
@@ -24,17 +25,27 @@ class Room:
             else:
                 self.enemy2 = self.get_enemy() #randomize
         if self.tier == 2:
-            if random.randint(1,100) <= 66:
+            if random.randint(1,100) <= 66: # 1/3
                 self.enemy2 = None
             else:
                 self.enemy2 = self.get_enemy()
+        if self.tier == 3:
+            if random.randint(1,100) <= 40: #60%
+                self.enemy2 = None
+            else:
+                self.enemy2 = self.get_enemy
 
     def e3decide(self):
         if self.tier == 1: # no third enemy at tier 1
             self.enemy3 = None
         if self.enemy2 is not None:
             if self.tier == 2:
-                if random.randint(1,100) <= 70:
+                if random.randint(1,100) <= 70: # 30%
+                    self.enemy3 = None
+                else:
+                    self.enemy3 = self.get_enemy()
+            if self.tier == 3:
+                if random.randint(1,100) <= 60: # 40%
                     self.enemy3 = None
                 else:
                     self.enemy3 = self.get_enemy()
@@ -46,6 +57,10 @@ class Room:
             return enemy_instance
         if self.tier == 2:
             enemy_class = t2e.enemy_retrieve(self.etype)
+            enemy_instance = enemy_class()
+            return enemy_instance
+        if self.tier == 3:
+            enemy_class = t3e.enemy_retrieve(self.etype)
             enemy_instance = enemy_class()
             return enemy_instance
 
