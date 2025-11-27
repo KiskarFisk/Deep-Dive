@@ -71,6 +71,8 @@ class Player:
             self.shop_inv.append(random.choice(wl.t1_shop_list))
         if self.tier == 2:
             self.shop_inv.append(random.choice(wl.t2_shop_list))
+        if self.tier == 3:
+            self.shop_inv.append(random.choice(wl.t3_shop_list))
 
     def tier_up(self):
         if self.tier == 1 and self.rep >= 100:
