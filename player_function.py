@@ -22,7 +22,7 @@ class Player:
         self.mis_comp = 0
         self.shop_inv = []
 
-        self.tier = 3
+        self.tier = 1
 
         self.weapon = wl.machete
 
