@@ -66,7 +66,9 @@ class Player:
     def tier_up(self):
         if self.tier == 1 and self.rep >= 100:
             self.tier = 2
+            print("You have achieved TIER II")
         if self.tier == 2 and self.rep >= 300:
             self.tier = 3
+            print("You have achieved TIER III")
 
 player1 = Player()
