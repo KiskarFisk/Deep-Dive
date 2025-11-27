@@ -19,9 +19,13 @@ def make_tienne_greaser():
     return enemy.Enemy("Tienne Greaser", 110, w.pistol, 1)
 def make_tienne_rifle():
     return enemy.Enemy("Tienne Rifleman", 130, w.bolt_rifle, 1)
+def make_tienne_shotgun1():
+    return enemy.Enemy("Tienne Shotgunner", 120, w.single_shotgun, 1)
+def make_tienne_shotgun2():
+    return enemy.Enemy("Tienne Shotgunner", 120, w.double_shotgun, 1)
 
 tier1_enemy_list = [make_rat_scavenger, make_rat_rager, make_rat_crackpot, make_rat_holder, make_rat_acid]
-tienne_merc_list = [make_tienne_scout, make_tienne_rifle, make_tienne_greaser]
+tienne_merc_list = [make_tienne_scout, make_tienne_rifle, make_tienne_greaser, make_tienne_shotgun1, make_tienne_shotgun2]
 
 t1_list = ["rat", "tienne"]
 
