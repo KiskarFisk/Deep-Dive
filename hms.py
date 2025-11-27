@@ -33,7 +33,7 @@ def hms_ti_obj():
             print("Thank you for your valiant service!")
             print(f"You have gained {player1.objective.mrew} credits and reputation!")
             player1.credits += player1.objective.mrew
-            player1.reputation += player1.objective.rrew
+            player1.rep += player1.objective.rrew
             player1.objective = None
             player1.tier_up()
         if player1.objective.progress != player1.objective.goal:
