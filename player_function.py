@@ -3,7 +3,6 @@ import weapon_list as wl
 import objectives.tier_1_objective_list as obj1
 import objectives.t2_ol as obj2
 import deep_dive as dd
-import save_system as save
 
 class Player:
     def __init__(self):
@@ -33,7 +32,7 @@ class Player:
         while dead:
             print("You have died.\n1. Reload your save if there is one\n2. Restart the game")
             options = {
-                "1": self.load,
+                "1": dd.extra_load,
                 "2": dd.do_the_thing
             }
             inp = input("Choice: ")
@@ -43,14 +42,6 @@ class Player:
                 dead = False
             else:
                 print("Invalid option")
-
-    def load(self):
-        if os.path.exists("save_data.pkl"):
-            save.load()
-            dd.do_the_thing()
-        else:
-            print("No save exists, reloading the game.")
-            dd.do_the_thing()
 
     def recover(self):
         if self.energy < self.energy_max:
