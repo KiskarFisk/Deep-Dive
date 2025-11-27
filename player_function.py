@@ -10,7 +10,7 @@ class Player:
         self.hp = 600
         self.max_hp = 600
         self.rep = 0
-        self.credits = 20
+        self.credits = 5
         self.energy = 5
         self.energy_max = 5
 
