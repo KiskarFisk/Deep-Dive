@@ -1,6 +1,7 @@
 import random, time
 import weapon_list as wl
 import objectives.tier_1_objective_list as obj1
+import objectives.t2_ol as obj2
 
 class Player:
     def __init__(self):
@@ -52,6 +53,8 @@ class Player:
     def get_objective(self):
         if self.tier == 1:
             self.objective = random.choice(obj1.starter_objectives)
+        if self.tier == 2:
+            self.objective = random.choice(obj2.t2_objs)
 
     def replace_weapon(self, weapon):
         self.weapon = weapon
