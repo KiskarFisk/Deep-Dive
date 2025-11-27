@@ -1,16 +1,16 @@
 import random, time
-import objective_function as obj
 import weapon_list as wl
+import objectives.tier_1_objective_list as obj1
 
 class Player:
     def __init__(self):
         self.serial_num = random.randint(99,999999)
-        self.objective = random.choice(obj.starter_objectives)
+        self.objective = random.choice(obj1.starter_objectives)
 
         self.hp = 600
         self.max_hp = 600
         self.rep = 0
-        self.credits = 0
+        self.credits = 5
         self.energy = 5
         self.energy_max = 5
 
@@ -47,6 +47,6 @@ class Player:
 
     def get_objective(self):
         if self.tier == 1:
-            self.objective = random.choice(obj.starter_objectives) # remember to update this
+            self.objective = random.choice(obj1.starter_objectives)
 
 player1 = Player()
