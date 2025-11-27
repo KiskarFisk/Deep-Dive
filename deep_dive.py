@@ -26,6 +26,8 @@ if skip_intro is False:
     print("Please do your best, your artificial body is worth $72.")
     time.sleep(1.1)
 
-#temporary measure
-while True:
+def do_the_thing():
     menu.main()
+
+while True:
+    do_the_thing()

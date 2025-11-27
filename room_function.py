@@ -1,4 +1,4 @@
-import random, time
+import random, time, os
 import enemies.tier_1_enemy_list as t1e
 import enemies.t2_el as t2e
 from player_function import player1
@@ -79,7 +79,7 @@ class Room:
             active_enemies += 1
         if self.enemy2 is not None:
             active_enemies += 1
-        while active_enemies > 0:
+        while active_enemies > 0 and player1.hp > 0:
             player1.recover()
             self.display_enemy_detail()
             attacked = False
@@ -129,10 +129,16 @@ class Room:
                 if self.enemy2.hp <= 0:
                     active_enemies -= 1
                     self.enemy2 = None
+            if self.enemy3:
+                if self.enemy3.hp <= 0:
+                    active_enemies -= 1
+                    self.enemy3 = None
 
             if active_enemies > 0:
                 self.enemy_attacks()
         self.defeated = True
+        if player1.hp <= 0:
+            player1.dieded()
 
     def player_attack(self, target, energy_invest):
         damage = player1.weapon.damage*energy_invest
