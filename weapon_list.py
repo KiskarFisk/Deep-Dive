@@ -8,11 +8,15 @@ axe = w.Weapon("Axe", 90, "A standard axe, used commonly by firemen.")
 pipe = w.Weapon("Lead Pipe", 20, "A lead pipe, nothing more nothing less.")
 knife = w.Weapon("Knife", 40, "A standard knife.")
 sledge = w.Weapon("Sledgehammer", 50, "A large hammer.")
+# Robot shit
+robo_punch = w.Weapon("Punch", 80, "")
 # Special
 acid = w.Weapon("Acid Vial", 100, "A vial of acid.")
 # Guns
 pistol = w.Weapon("Pistol", 110, "A pistol.")
+auto_pistol = w.Weapon("Auto-Pistol", 120, "An Old Age auto-pistol.")
 bolt_rifle = w.Weapon("Bolt Action Rifle", 130, "An old bolt action rifle, very outdated now.")
+rifle = w.Weapon("Small Auto-Rifle", 150, "A New Age auto-rifle made for easy use, fairly weak because of that.")
 single_shotgun = w.Weapon("Single Shot Shotgun", 150, "A shotgun with no ammo reserve and a single barrel.")
 double_shotgun = w.Weapon("Double Barrel Shotgun", 160, "A shotgun with two barrels.")
 triple_shotgun = w.Weapon("Triple Barrel Shotgun", 240, "A shotgun with three barrels.")
