@@ -94,6 +94,8 @@ class Room:
             active_enemies += 1
         if self.enemy2 is not None:
             active_enemies += 1
+        if self.enemy3 is not None:
+            active_enemies += 1
         while active_enemies > 0 and player1.hp > 0:
             player1.recover()
             self.display_enemy_detail()
@@ -139,14 +141,17 @@ class Room:
             if self.enemy1:
                 if self.enemy1.hp <= 0:
                     active_enemies -= 1
+                    print(f"You defeated {self.enemy1.name}")
                     self.enemy1 = None
             if self.enemy2:
                 if self.enemy2.hp <= 0:
                     active_enemies -= 1
+                    print(f"You defeated {self.enemy2.name}")
                     self.enemy2 = None
             if self.enemy3:
                 if self.enemy3.hp <= 0:
                     active_enemies -= 1
+                    print(f"You defeated {self.enemy3.name}")
                     self.enemy3 = None
 
             if active_enemies > 0:
@@ -173,11 +178,15 @@ class Room:
     def display_enemies(self):
         if self.enemy1:
             print(self.enemy1.name)
-        if self.enemy2 is not None:
+        if self.enemy2:
             print(self.enemy2.name)
+        if self.enemy3:
+            print(self.enemy3.name)
 
     def display_enemy_detail(self):
         if self.enemy1:
             self.enemy1.display_info()
         if self.enemy2 is not None:
             self.enemy2.display_info()
+        if self.enemy3 is not None:
+            self.enemy3.display_info()
