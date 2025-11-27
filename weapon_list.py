@@ -32,6 +32,8 @@ mk0_laz_pistol = w.Weapon("Mk0 Lazer Pistol", 110, "An extremely old lazer pisto
 mk0_laz_rifle = w.Weapon("Mk0 Lazer Rifle", 130, "An old lazer rifle, the battery pack sits on your back, weighing almost 50 pounds.")
 mk1_laz_pistol = w.Weapon("Mk1 Lazer Pistol", 140, "An improved version of the original lazer pistol, now properly classified as a pistol.")
 mk1_laz_rifle = w.Weapon("Mk1 Lazer Rifle", 160, "The standard issue lazer rifle for nearly 40 years, now very outdated but still effective.")
+# Mecha Guns
+mech_pistol = w.Weapon("Heavy Pistol", 200, "A pistol fit for a mech to use.")
 
 t1_shop_list = [
     machete,

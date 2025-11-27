@@ -9,7 +9,7 @@ def hms_menu():
     print("1. Turn in mission")
     print("2. Get a new mission")
     print("3. Go to the shop")
-    print("4. Faction Dictionary")
+    print("4. Faction Dictionary - Warning, contains spoilers")
     print("5. Buy Upgrades")
 
     inp = input("Choice: ")

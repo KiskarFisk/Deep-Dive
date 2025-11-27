@@ -3,45 +3,28 @@ import time
 
 def main():
     print("Here you may read about the groups you may come across during your diving.")
-    if player1.tier == 1:
+    if player1.tier > 0:
         tier1_factions()
-    if player1.tier == 2:
-        tier2_factions()
 
 def tier1_factions():
     leave = False
     while not leave:
         print("1. The Rats\n"
               "2. Tienne\n"
-              "3. Orfast\n")
-        inp = input("Choice: ")
-        options = {
-            "1": rat,
-            "2": tienne,
-            "3": orfast
-        }
-        option = options.get(inp)
-        if option:
-            option()
-        else:
-            print("Leaving")
-            leave = True
-
-def tier2_factions():
-    leave = False
-    while not leave:
-        print("1. The Rats\n"
-              "2. Tienne\n"
               "3. Orfast\n"
               "4. New Order Knights\n"
-              "5. Toreed Corp.\n")
+              "5. Toreed Corp.\n"
+              "6. HALIDON rebels\n"
+              "7. Malbey")
         inp = input("Choice: ")
         options = {
             "1": rat,
             "2": tienne,
             "3": orfast,
             "4": nwo,
-            "5": toreed
+            "5": toreed,
+            "6": halireb,
+            "7": malbey
         }
         option = options.get(inp)
         if option:
@@ -64,4 +47,10 @@ def nwo():
     input("Press enter to continue")
 def toreed():
     print("Toreed Corporation appeared as one of the premier mech and robotics companies. Their initial success was quickly overshadowed by HALIDON.")
+    input("Press enter to continue")
+def halireb():
+    print("Rebels originating from HALIDON, an utter nuisance.")
+    input("Press enter to continue")
+def malbey():
+    print("The Malbey Company was is a frontier exploration company, producing most of their equipment on Terra. Their interests do not align with those of HALIDON.")
     input("Press enter to continue")
