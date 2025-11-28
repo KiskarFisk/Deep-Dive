@@ -19,7 +19,4 @@ def get_mission():
     return story_miss[player1.current_mission]
 
 def get_objective():
-    if player1.current_mission == 2:
-        player1.objective = sobj.story2
-    else:
-        player1.objective = None
+    player1.objective = sobj.story_obj_list[player1.current_mission]

@@ -10,7 +10,6 @@ from colorama import Fore, Style
 
 def main():
     print()
-    player1.hp = player1.max_hp
 
     print(f"\nPlease select what to do C{player1.serial_num}")
     print("1. Dive")
