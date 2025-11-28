@@ -1,7 +1,5 @@
 import random, time, os
 import weapon_list as wl
-import objectives.tier_1_objective_list as obj1
-import objectives.t2_ol as obj2
 
 class Player:
     def __init__(self):
