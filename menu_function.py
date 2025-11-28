@@ -5,6 +5,7 @@ import missions.t2_ml as t2ml
 import missions.t3_ml as t3ml
 import save_system as save
 import hms as hms
+import missions.story_missions as stor
 
 def main():
     print()
@@ -21,20 +22,27 @@ def main():
 
     inp = input("Choice: ")
     if inp == "1":
-        m1 = pull_missions()
+        m1 = get_story_mission()
         m2 = pull_missions()
         m3 = pull_missions()
 
         print(f"\n1. {m1.name}")
-        print(f"2. {m2.name}")
-        print(f"3. {m3.name}")
+        if m2 == None:
+            print("2. UNAVAILABLE")
+        else:
+            print(f"2. {m2.name}")
+
+        if m3 == None:
+            print("3. UNAVAILABLE")
+        else:
+            print(f"3. {m3.name}")
 
         inp = input("Choice: ")
 
         actions = {
-            "1": m1.run_mission,
-            "2": m2.run_mission,
-            "3": m3.run_mission,
+            "1": m1.run_mission, # Will now always be a STORY mission
+            "2": m2.run_mission if m2 else None,
+            "3": m3.run_mission if m3 else None,
         }
 
         action = actions.get(inp)
@@ -63,9 +71,14 @@ def main():
         hms.hms_menu()
 
 def pull_missions():
+    if player1.tier == 0:
+        return None
     if player1.tier == 1:
         return random.choice(t1ml.t1_missions)
     elif player1.tier == 2:
         return random.choice(t2ml.t2_misslist)
     elif player1.tier == 3:
         return random.choice(t3ml.t3_mlist)
+
+def get_story_mission():
+    return stor.get_mission()

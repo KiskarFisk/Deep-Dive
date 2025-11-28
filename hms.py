@@ -7,7 +7,6 @@ def hms_menu():
     print()
     print("HALIDON Mission Center")
     print("1. Turn in mission")
-    print("2. Get a new mission")
     print("3. Go to the shop")
     print("4. Faction Dictionary - Warning, contains spoilers")
     print("5. Buy Upgrades")
@@ -16,10 +15,9 @@ def hms_menu():
 
     actions = {
         "1": hms_ti_obj,
-        "2": hms_g_obj,
-        "3": hms_shop,
-        "4": fb.main,
-        "5": hms_upgrade
+        "2": hms_shop,
+        "3": fb.main,
+        "4": hms_upgrade
     }
     action = actions.get(inp)
     if action:
@@ -31,9 +29,8 @@ def hms_ti_obj():
     if player1.objective is not None:
         if player1.objective.progress == player1.objective.goal:
             print("Thank you for your valiant service!")
-            print(f"You have gained {player1.objective.mrew} credits and reputation!")
+            print(f"You have gained {player1.objective.mrew} credits!")
             player1.credits += player1.objective.mrew
-            player1.rep += player1.objective.rrew
             player1.objective.progress = 0
             player1.objective = None
             player1.tier_up()
@@ -42,12 +39,6 @@ def hms_ti_obj():
             print("You mission is not complete!")
     else:
         print("You have no mission")
-
-def hms_g_obj():
-    if player1.objective is None:
-        player1.get_objective()
-    else:
-        print("You already have a mission!")
 
 def hms_shop():
     print("Shop rotates after every mission.")

@@ -5,13 +5,16 @@ import enemies.t2_el as t2e
 import enemies.t3_el as t3e
 
 class Mission:
-    def __init__(self, name, type, tier, rooms, ):
+    def __init__(self, name, type, tier, rooms, etype):
         self.name = name
         self.type = type
         self.tier = tier
         self.room_c = rooms
         self.room = 1
-        self.etype = self.etype_retrieve()
+        if etype == None:
+            self.etype = self.etype_retrieve()
+        else:
+            self.etype = etype
 
     def etype_retrieve(self):
         if self.tier == 1:

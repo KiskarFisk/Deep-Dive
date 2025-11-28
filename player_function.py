@@ -6,7 +6,7 @@ import objectives.t2_ol as obj2
 class Player:
     def __init__(self):
         self.serial_num = random.randint(99,999999)
-        self.objective = random.choice(obj1.starter_objectives)
+        self.objective = None
 
         self.hp = 600
         self.max_hp = 600
@@ -22,7 +22,8 @@ class Player:
         self.mis_comp = 0
         self.shop_inv = []
 
-        self.tier = 1
+        self.tier = 0
+        self.current_mission = 1
 
         self.weapon = wl.machete
 
@@ -56,12 +57,6 @@ class Player:
         print(f"{self.credits} Credits")
         self.weapon.display_info()
         time.sleep(1)
-
-    def get_objective(self):
-        if self.tier == 1:
-            self.objective = random.choice(obj1.starter_objectives)
-        if self.tier == 2:
-            self.objective = random.choice(obj2.t2_objs)
 
     def replace_weapon(self, weapon):
         self.weapon = weapon
