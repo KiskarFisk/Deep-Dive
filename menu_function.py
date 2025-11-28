@@ -26,7 +26,10 @@ def main():
         m2 = pull_missions()
         m3 = pull_missions()
 
-        print(f"\n1. {m1.name}")
+        if not m1:
+            print("1. UNAVAILABLE")
+        else:
+            print(f"\n1. {m1.name}")
         if m2 == None:
             print("2. UNAVAILABLE")
         else:
@@ -40,7 +43,7 @@ def main():
         inp = input("Choice: ")
 
         actions = {
-            "1": m1.run_mission, # Will now always be a STORY mission
+            "1": m1.run_mission if m1 else None, # Will now always be a STORY mission
             "2": m2.run_mission if m2 else None,
             "3": m3.run_mission if m3 else None,
         }

@@ -9,8 +9,8 @@ def get_mission():
     if player1.current_mission == 1:
         player1.objective = sobj.story1
         return story1
-    else:
-        return None
+    if player1.current_mission == 2:
+        return story2
 
 def get_objective():
     if player1.current_mission == 2:
