@@ -3,11 +3,11 @@ from player_function import player1
 import weapon_list as wl
 import faction_book as fb
 import missions.story_missions as stor
+import after_action as after
 
 def hms_menu():
     print()
     print("1. Turn in mission")
-    print("3. Go to the shop")
     print("4. Faction Dictionary - Warning, contains spoilers")
     print("5. Buy Upgrades")
 
@@ -15,7 +15,6 @@ def hms_menu():
 
     actions = {
         "1": hms_ti_obj,
-        "2": hms_shop,
         "3": fb.main,
         "4": hms_upgrade
     }
@@ -34,6 +33,7 @@ def hms_ti_obj():
             player1.objective.progress = 0
             player1.objective = None
             player1.current_mission += 1
+            after.report(player1.current_mission - 1)
             stor.get_objective()
             player1.tier_up()
             time.sleep(2)

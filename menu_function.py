@@ -6,9 +6,11 @@ import missions.t3_ml as t3ml
 import save_system as save
 import hms as hms
 import missions.story_missions as stor
+from colorama import Fore, Style
 
 def main():
     print()
+    player1.hp = player1.max_hp
 
     print(f"\nPlease select what to do C{player1.serial_num}")
     print("1. Dive")
@@ -29,7 +31,7 @@ def main():
         if not m1:
             print("1. UNAVAILABLE")
         else:
-            print(f"\n1. {m1.name}")
+            print(Fore.BLUE + f"\n1. {m1.name}" + Style.RESET_ALL)
         if m2 == None:
             print("2. UNAVAILABLE")
         else:
