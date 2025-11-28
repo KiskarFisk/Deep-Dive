@@ -2,7 +2,7 @@ import random, time
 import enemies.tier_1_enemy_list as t1e
 import enemies.t2_el as t2e
 import enemies.t3_el as t3e
-from player_function import player1 #goo
+from player_function import player1
 
 class Room:
     def __init__(self, tier, elist):
