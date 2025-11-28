@@ -2,10 +2,10 @@ import random, time
 from player_function import player1
 import weapon_list as wl
 import faction_book as fb
+import missions.story_missions as stor
 
 def hms_menu():
     print()
-    print("HALIDON Mission Center")
     print("1. Turn in mission")
     print("3. Go to the shop")
     print("4. Faction Dictionary - Warning, contains spoilers")
@@ -33,6 +33,8 @@ def hms_ti_obj():
             player1.credits += player1.objective.mrew
             player1.objective.progress = 0
             player1.objective = None
+            player1.current_mission += 1
+            stor.get_objective()
             player1.tier_up()
             time.sleep(2)
         elif player1.objective.progress != player1.objective.goal:

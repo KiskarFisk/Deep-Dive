@@ -16,7 +16,7 @@ def main():
     print("3. See your stats")
     print("4. Visit a medpod")
     print("5. Save the game")
-    print("6. Visit HALIDON Mission Center")
+    print("6. Use Your HALIDON Mobile Computer")
 
     player1.energy = player1.energy_max
 
