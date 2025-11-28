@@ -1,4 +1,4 @@
-import random, time, os
+import random, time
 import enemies.tier_1_enemy_list as t1e
 import enemies.t2_el as t2e
 import enemies.t3_el as t3e
