@@ -3,8 +3,6 @@ import json
 import random
 from pathlib import Path
 
-import data
-
 SAVE_PATH = Path(__file__).with_name("save.json")
 
 
@@ -16,9 +14,9 @@ def new_player():
     return {
         "serial": new_serial(),
         "hp": 100, "max_hp": 100,
-        "credits": 10, "rep": 0,
+        "credits": 10,
         "weapon": "machete", "ammo": 0,
-        "objective": {"id": random.choice(list(data.OBJECTIVES)), "progress": 0},
+        "story": 0,  # index into data.STORY
         "missions_done": 0,
         "shop": [], "shop_at": -1,
     }

@@ -17,6 +17,12 @@ for f in data.FACTIONS.values():
 for w in W.values():
     assert all(t in data.TRAITS for t in w["traits"])
 assert all(w in W for w in data.SHOP_POOL)
-assert all(m["type"] in data.MISSION_TYPES for m in data.MISSIONS)
-assert all(o["type"] in data.MISSION_TYPES for o in data.OBJECTIVES.values())
+for act in data.ACTS:
+    assert len(act["side"]) >= 2  # dive offers 2 side missions
+    for s in act["side"]:
+        assert all(data.FACTIONS[f]["roster"] for f in s["factions"])
+    for m in act["story"]:
+        assert data.FACTIONS[m["faction"]]["roster"]
+        assert m["report"].get("weapon", "machete") in W
+        assert all(spk in ("C", "HALIDON") for spk, _ in m["report"]["lines"])
 print("ok")

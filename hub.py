@@ -1,4 +1,4 @@
-"""HALIDON Mission Center: objectives, armory, upgrades, medpod, faction records, cloning."""
+"""HALIDON Mobile Computer: armory, upgrades, medpod, faction records, cloning."""
 import math
 import random
 import time
@@ -19,40 +19,15 @@ CLONE_FEE = 20
 
 
 def menu(p):
-    actions = {"1": turn_in, "2": new_objective, "3": armory, "4": upgrades, "5": medpod, "6": records}
+    actions = {"1": armory, "2": upgrades, "3": medpod, "4": records}
     while True:
         console.print(Panel(
-            "1. Turn in objective\n2. Request objective\n3. Armory\n4. Upgrades\n5. Medpod\n"
-            "6. Faction records [dim](contains spoilers)[/]\n0. Leave",
-            title="HALIDON Mission Center", expand=False))
+            "1. Armory\n2. Upgrades\n3. Medpod\n4. Faction records [dim](contains spoilers)[/]\n0. Leave",
+            title="HALIDON Mobile Computer", expand=False))
         c = Prompt.ask("Choice", choices=[*actions, "0"], show_choices=False)
         if c == "0":
             return
         actions[c](p)
-
-
-def turn_in(p):
-    o = p["objective"]
-    if not o:
-        console.print("You have no objective.")
-        return
-    obj = data.OBJECTIVES[o["id"]]
-    if o["progress"] < obj["goal"]:
-        console.print(f"Objective incomplete: {o['progress']}/{obj['goal']}.")
-        return
-    p["credits"] += obj["credits"]
-    p["rep"] += obj["rep"]
-    p["objective"] = None
-    console.print(f"[green]Objective complete.[/] +{obj['credits']} credits, +{obj['rep']} reputation.")
-
-
-def new_objective(p):
-    if p["objective"]:
-        console.print("You already have an objective.")
-        return
-    p["objective"] = {"id": random.choice(list(data.OBJECTIVES)), "progress": 0}
-    obj = data.OBJECTIVES[p["objective"]["id"]]
-    console.print(f"[bold]{obj['name']}[/]: {obj['desc']}")
 
 
 def armory(p):

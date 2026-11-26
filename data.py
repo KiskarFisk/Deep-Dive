@@ -47,6 +47,13 @@ ENEMIES = {
         ("Fire", "attack", 9), ("Take cover", "guard", 0), ("Fire", "attack", 9)]},
     "tienne_shotgunner": {"name": "Tienne Shotgunner", "hp": 28, "loot": 6, "moves": [
         ("Reload", "idle", 0), ("Blast", "attack", 20)]},
+
+    "orfast_volunteer": {"name": "Orfast Volunteer", "hp": 18, "loot": 2, "moves": [
+        ("Swing", "attack", 5), ("Hold the line", "guard", 0)]},
+    "orfast_militia": {"name": "Orfast Militiaman", "hp": 26, "loot": 4, "moves": [
+        ("Fire", "attack", 9), ("Fire", "attack", 9), ("Take cover", "guard", 0)]},
+    "orfast_rifleman": {"name": "Orfast Rifleman", "hp": 22, "loot": 5, "moves": [
+        ("Take aim", "idle", 0), ("Shot", "attack", 16)]},
 }
 
 # Factions with an empty roster have lore only (not in the core game yet).
@@ -57,7 +64,7 @@ FACTIONS = {
     "tienne": {"name": "Tienne", "roster": ["tienne_scout", "tienne_greaser", "tienne_shotgunner"],
         "lore": "Tienne are a group of mercenaries originating from Old Tokyo. They were once powerful "
                 "enough to rival HALIDON but the company collapsed after the destruction of Japan."},
-    "orfast": {"name": "Orfast", "roster": [],
+    "orfast": {"name": "Orfast", "roster": ["orfast_volunteer", "orfast_militia", "orfast_rifleman"],
         "lore": "Orfast is a group operating solely in Terran cities, they're harmless for the most part, "
                 "when left alone. They fiercely fight for the so-called freedom of humanity on Terra."},
     "knights": {"name": "New Order Knights", "roster": [],
@@ -74,25 +81,71 @@ FACTIONS = {
                 "on Terra. Their interests do not align with those of HALIDON."},
 }
 
-MISSION_TYPES = {"salvage": "Salvage", "purge": "Purge", "recovery": "Recovery"}
-
-MISSIONS = [
-    {"name": "Strip the Kessler Foundry", "type": "salvage", "rooms": (3, 4)},
-    {"name": "Sweep the Drowned Arcade", "type": "salvage", "rooms": (2, 3)},
-    {"name": "Block 9 Depot Run", "type": "salvage", "rooms": (2, 4)},
-    {"name": "Clear the Underpass Nest", "type": "purge", "rooms": (3, 3)},
-    {"name": "Purge the Tram Yard", "type": "purge", "rooms": (2, 3)},
-    {"name": "Recover the Courier Case", "type": "recovery", "rooms": (2, 3)},
-    {"name": "Retake the Relay Shack", "type": "recovery", "rooms": (2, 2)},
+# The game is railroaded: each act has story missions played in order.
+# Side missions (random, for credits) unlock after the first story report.
+# report lines: (speaker, text). Speaker "C" prints as the player's serial. {serial} is filled in.
+# report extras: "credits" (int), "weapon" (offered, player may decline), "end_act" (prints act end).
+ACTS = [
+    {"name": "Act I: Asia",
+     "side": [
+         {"name": "Strip the Kessler Foundry", "factions": ["rats"], "rooms": (3, 4)},
+         {"name": "Sweep the Drowned Arcade", "factions": ["rats", "tienne"], "rooms": (2, 3)},
+         {"name": "Block 9 Depot Run", "factions": ["rats", "orfast"], "rooms": (2, 4)},
+         {"name": "Clear the Underpass Nest", "factions": ["rats"], "rooms": (3, 3)},
+         {"name": "Purge the Tram Yard", "factions": ["tienne", "orfast"], "rooms": (2, 3)},
+         {"name": "Recover the Courier Case", "factions": ["tienne"], "rooms": (2, 3)},
+         {"name": "Retake the Relay Shack", "factions": ["orfast"], "rooms": (2, 2)},
+     ],
+     "story": [
+         {"name": "Planetfall", "faction": "rats", "rooms": 2,
+          "brief": "Your drop pod is inbound for Terra. Secure the landing site and await instructions.",
+          "report": {"lines": [
+              ("HALIDON", "C{serial}, you are operational. That already puts you ahead of the last three units."),
+              ("HALIDON", "Side contracts are now available on your Mobile Computer. Earn your keep.")]}},
+         {"name": "Hold the Landing Site", "faction": "rats", "rooms": 3,
+          "brief": "Hostiles are converging on the landing site. Classify them as terrorists and respond accordingly.",
+          "report": {"lines": [
+              ("C", "They were scavengers. Most of them weren't armed."),
+              ("HALIDON", "Then they were poorly armed terrorists.")]}},
+         {"name": "The Missing Crates", "faction": "rats", "rooms": 3,
+          "brief": "A HALIDON weapons shipment went missing near the coast. The Rats took it. Take it back.",
+          "report": {"credits": 10, "lines": [
+              ("HALIDON", "Shipment recovered at 64% integrity. The shortfall has been noted on your record.")]}},
+         {"name": "Burn the Nest", "faction": "rats", "rooms": 4,
+          "brief": "The Rats have a camp in the old rail tunnels. HALIDON would like it to stop existing.",
+          "report": {"lines": [
+              ("C", "Some of them tried to surrender."),
+              ("HALIDON", "Surrender is not a recognized outcome. Proceed to your next assignment.")]}},
+         {"name": "The Ikari Vault", "faction": "tienne", "rooms": 3,
+          "brief": "Tienne mercenaries are looting a pre-collapse lab outside Ikari. Recover its data banks before they're sold.",
+          "report": {"lines": [
+              ("HALIDON", "The Ikari research team thanks you."),
+              ("C", "What was on the drives?"),
+              ("HALIDON", "You are not cleared to know that.")]}},
+         {"name": "Bunker Four", "faction": "tienne", "rooms": 3,
+          "brief": "Tienne is operating out of an old defense bunker. Their contract ends today.",
+          "report": {"lines": [
+              ("C", "Who hired them?"),
+              ("HALIDON", "Irrelevant.")]}},
+         {"name": "Into Old Tokyo", "faction": "orfast", "rooms": 4,
+          "brief": "HALIDON is expanding into the Old Tokyo ruins. Local militia are resisting. Clear a path.",
+          "report": {"weapon": "pistol", "lines": [
+              ("HALIDON", "Field performance acceptable."),
+              ("HALIDON", "You are authorized to keep a recovered sidearm.")]}},
+         {"name": "Camp Records", "faction": "orfast", "rooms": 4,
+          "brief": "Stolen HALIDON documents are being held in a refugee camp in the ruins. Retrieve them. Collateral is pre-approved.",
+          "report": {"lines": [
+              ("C", "These are census records. Names of everyone in the camp."),
+              ("HALIDON", "Correct. Thank you for retrieving them.")]}},
+         {"name": "Wheels Up", "faction": "tienne", "rooms": 2,
+          "brief": "Tienne keeps a cargo plane on an old airstrip at the edge of the city. HALIDON needs it, and you on it.",
+          "report": {"end_act": True, "lines": [
+              ("C", "Where am I going again?"),
+              ("HALIDON", "Leece. It's in Europe."),
+              ("C", "And what am I doing there?"),
+              ("HALIDON", "Proving your worth.")]}},
+     ]},
 ]
 
-OBJECTIVES = {
-    "scrap_quota": {"name": "Scrap Quota", "type": "salvage", "goal": 3, "credits": 15, "rep": 40,
-        "desc": "Fabrication is behind schedule. Bring back anything with a serial number."},
-    "archive_request": {"name": "Archive Request", "type": "salvage", "goal": 2, "credits": 12, "rep": 40,
-        "desc": "The research team in Ikari wants pre-collapse paper records. Handle with care."},
-    "pest_control": {"name": "Pest Control", "type": "purge", "goal": 2, "credits": 14, "rep": 40,
-        "desc": "Squatters are slowing down survey teams. Remove them."},
-    "lost_property": {"name": "Lost Property", "type": "recovery", "goal": 2, "credits": 16, "rep": 40,
-        "desc": "A courier went dark carrying company property. The property is what matters."},
-}
+# Flat, ordered story track: STORY[i] = (act, mission)
+STORY = [(act, m) for act in ACTS for m in act["story"]]
